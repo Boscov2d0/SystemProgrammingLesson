@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Jobs;
 using System;
 
-public class Lesson2 : MonoBehaviour, IDisposable
+public class Lesson2 : MonoBehaviour
 {
     private NativeArray<int> array;
 
@@ -14,6 +14,7 @@ public class Lesson2 : MonoBehaviour, IDisposable
 
     [SerializeField] private Transform _transformObject;
     [SerializeField] private Transform _transformObject2;
+
     private NativeArray<Vector3> _velocities2;
     private TransformAccessArray _transformAccessArray;
 
@@ -91,11 +92,8 @@ public class Lesson2 : MonoBehaviour, IDisposable
     private void OnDestroy()
     {
         _velocities2.Dispose();
-    }
+        _transformAccessArray.Dispose();
 
-    public void Dispose()
-    {
-        _velocities2.Dispose();
     }
 }
 
