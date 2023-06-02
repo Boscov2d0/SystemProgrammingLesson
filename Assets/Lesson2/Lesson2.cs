@@ -93,7 +93,6 @@ public class Lesson2 : MonoBehaviour
     {
         _velocities2.Dispose();
         _transformAccessArray.Dispose();
-
     }
 }
 
