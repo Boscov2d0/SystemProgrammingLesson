@@ -10,7 +10,6 @@ partial class CameraRenderer
     private CommandBuffer _commandBuffer = new CommandBuffer { name = bufferName };
     private const string bufferName = "Camera Render";
     private CullingResults _cullingResult;
-    //private static readonly List<ShaderTagId> drawingShaderTagIds = new List<ShaderTagId> { new ShaderTagId("SRPDefaultUnlit"), };
 
     public void Render(ScriptableRenderContext context, Camera camera)
     {

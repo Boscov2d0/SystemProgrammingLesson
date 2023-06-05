@@ -22,11 +22,11 @@ public class Fractal : MonoBehaviour
 
         _transforms = new Transform[5];
 
-        var childA = CreateChild(Vector3.up, Quaternion.identity);
-        var childB = CreateChild(Vector3.right, Quaternion.Euler(0f, 0f, -90f));
-        var childC = CreateChild(Vector3.left, Quaternion.Euler(0f, 0f, 90f));
-        var childD = CreateChild(Vector3.forward, Quaternion.Euler(90f, 0f, 0f));
-        var childE = CreateChild(Vector3.back, Quaternion.Euler(-90f, 0f, 0f));
+        Fractal childA = CreateChild(Vector3.up, Quaternion.identity);
+        Fractal childB = CreateChild(Vector3.right, Quaternion.Euler(0f, 0f, -90f));
+        Fractal childC = CreateChild(Vector3.left, Quaternion.Euler(0f, 0f, 90f));
+        Fractal childD = CreateChild(Vector3.forward, Quaternion.Euler(90f, 0f, 0f));
+        Fractal childE = CreateChild(Vector3.back, Quaternion.Euler(-90f, 0f, 0f));
 
         childA.transform.SetParent(transform, false);
         childB.transform.SetParent(transform, false);
@@ -57,9 +57,6 @@ public class Fractal : MonoBehaviour
         JobHandle jobHandle2 = jobForTransform.Schedule(_transformAccessArray);
 
         jobHandle2.Complete();
-        
-        //transform.Rotate(0f, _rotationSpeed * Time.deltaTime, 0f);
-
     }
     private void OnDestroy()
     {
@@ -70,7 +67,7 @@ public class Fractal : MonoBehaviour
     }
     private Fractal CreateChild(Vector3 direction, Quaternion rotation)
     {
-        var child = Instantiate(this);
+        Fractal child = Instantiate(this);
         child._depth = _depth - 1;
         child.transform.localPosition = _positionOffset * direction;
         child.transform.localRotation = rotation;
